@@ -1,0 +1,2 @@
+set(rospy_tutorials_MESSAGE_FILES "/media/alex/AlexPortableSSD/School/4th-year/CS422/modTurtle/src/ros_tutorials/rospy_tutorials/msg/Floats.msg;/media/alex/AlexPortableSSD/School/4th-year/CS422/modTurtle/src/ros_tutorials/rospy_tutorials/msg/HeaderString.msg")
+set(rospy_tutorials_SERVICE_FILES "/media/alex/AlexPortableSSD/School/4th-year/CS422/modTurtle/src/ros_tutorials/rospy_tutorials/srv/AddTwoInts.srv;/media/alex/AlexPortableSSD/School/4th-year/CS422/modTurtle/src/ros_tutorials/rospy_tutorials/srv/BadTwoInts.srv")
