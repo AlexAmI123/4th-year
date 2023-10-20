@@ -1,0 +1,2 @@
+ros_tutorials/ros_tutorials:ros_tutorials/roscpp_tutorials:ros_tutorials/rospy_tutorials:ros_tutorials/turtlesim:turtle_ctrl
+-DCATKIN_DEVEL_PREFIX=/media/alex/AlexPortableSSD/School/4th-year/CS422/modTurtle/devel -DCMAKE_INSTALL_PREFIX=/media/alex/AlexPortableSSD/School/4th-year/CS422/modTurtle/install -G Unix Makefiles
