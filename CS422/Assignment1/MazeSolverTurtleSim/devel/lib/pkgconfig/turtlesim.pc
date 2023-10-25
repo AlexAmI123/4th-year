@@ -1,8 +1,0 @@
-prefix=/media/alex/AlexPortableSSD/School/4th-year/CS422/modTurtle/devel
-
-Name: turtlesim
-Description: Description of turtlesim
-Version: 0.10.2
-Cflags: -I/media/alex/AlexPortableSSD/School/4th-year/CS422/modTurtle/devel/include
-Libs: -L${prefix}/lib 
-Requires: geometry_msgs message_runtime std_msgs std_srvs
