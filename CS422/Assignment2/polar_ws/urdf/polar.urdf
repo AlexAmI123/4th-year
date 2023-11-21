@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<!-- 0: Give the robot a name -->
+<robot name="polarbot">
+<!-- 0: Define some colors for use later -->
+<material name="red"> <color rgba="1.0 0.0 0.0 1.0"/> </material>
+<material name="green"> <color rgba="0.0 1.0 0.0 1.0"/> </material>
+<material name="blue"> <color rgba="0.0 0.0 1.0 1.0"/> </material>
+
+<!-- 1: Special link that defines origin of world co-ordinate system in ROS
+-->
+<link name="world"/>
+<!-- 1: Create a base that consists of a squat cylinder -->
+<link name="base_link">
+<visual>
+<origin rpy="0 0 0" xyz="0 0 0.025"/>
+<geometry> <cylinder length="0.05" radius="0.1"/> </geometry>
+<material name="red"/>
+</visual>
+</link>
+<!-- 1: Attach base_link to ROS's world link -->
+<joint name="fixed" type="fixed">
+<parent link="world"/>
+<child link="base_link"/>
+</joint>
+
+<!-- 2: Create a link that will form the outer cylinder of the first
+prismatic actuator -->
+<link name="torso">
+<visual>
+<geometry> <cylinder length="0.4" radius="0.04"/> </geometry>
+<material name="blue"/>
+<origin rpy="0 0 0" xyz="0 0 0.25"/>
+</visual>
+</link>
+<!-- 2: Attach cylinder to ROS's base_link using a revolute joint -->
+<joint name="R1" type="revolute">
+<limit lower="-1.5708" upper="1.5708" effort="10" velocity="3"/>
+<axis xyz="0 0 1"/>
+<parent link="base_link"/>
+<child link="torso"/>
+</joint>
+
+<!-- 3: Create a link that will form the inner piston of the prismatic
+actuator (torso) -->
+<link name="piston1">
+<visual>
+<geometry> <cylinder length="0.4" radius="0.02"/> </geometry>
+<material name="blue"/>
+<origin rpy="0 0 0" xyz="0 0 0"/>
+</visual>
+</link>
+<!-- 3: Join -->
+<joint name="P1A" type="prismatic">
+<limit lower="0" upper="0.4" effort="10" velocity="3"/>
+<axis xyz="0 0 1"/>
+<parent link="torso"/>
+<child link="piston1"/>
+<origin rpy="0 0 0" xyz="0 0 0.25"/>
+</joint>
+
+<!-- 4: Create a link that will form the inner piston of the second
+prismatic actuator (arm) -->
+<link name="piston2">
+<visual>
+<geometry> <cylinder length="0.4" radius="0.02"/> </geometry>
+<material name="green"/>
+<origin rpy="0 0 0" xyz="0 0 0"/>
+</visual>
+</link>
+<!-- 4: Join the second prismatic actuator to the the first (at 90 degrees,
+1.57 radians) -->
+<joint name="P2B" type="prismatic">
+<limit lower="0" upper="0.4" effort="10" velocity="3"/>
+<axis xyz="0 0 1"/>
+<parent link="piston1"/>
+<child link="piston2"/>
+<origin rpy="0 1.5708 0" xyz="0.2 0 0.2"/>
+</joint> 
+
+<!-- 5: Create a link that will form the outer cylinder of the second
+prismatic actuator (arm) -->
+<link name="arm">
+<visual>
+<geometry> <cylinder length="0.4" radius="0.04"/> </geometry>
+<material name="green"/>
+<origin rpy="0 0 0" xyz="0 0 0"/>
+</visual>
+</link>
+<!-- 5: Join -->
+<joint name="P2A" type="fixed">
+<parent link="piston1"/>
+<child link="arm"/>
+<origin rpy="0 1.5708 0" xyz="0.2 0 0.2"/>
+</joint>
+
+<!-- 6: Create a link that will form the end effector (a drill) -->
+<link name="drill">
+<visual>
+<geometry><mesh filename="file:///media/alex/AlexPortableSSD/School/4th-year/CS422/Assignment2/drill.dae"
+scale="0.01 0.01 0.01"/></geometry>
+<origin rpy="0 0 1.5708" xyz="0 0 0.085"/>
+</visual>
+</link>
+<!-- 6: Join -->
+<joint name="tool_mount" type="continuous">
+<axis xyz="0 0 1"/>
+<parent link="piston2"/>
+<child link="drill"/>
+<origin rpy="0 0 0" xyz="0 0 0.25"/>
+</joint>
+
+</robot>

@@ -1,0 +1,2 @@
+
+-DPYTHON_EXECUTABLE=/usr/bin/python3 -DCATKIN_DEVEL_PREFIX=/media/alex/AlexPortableSSD/School/4th-year/CS422/Assignment2/polar_ws/devel -DCMAKE_INSTALL_PREFIX=/media/alex/AlexPortableSSD/School/4th-year/CS422/Assignment2/polar_ws/install -G Unix Makefiles

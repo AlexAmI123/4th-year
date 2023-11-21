@@ -5,9 +5,10 @@
 				<color rgba="0 0 .8 1"/>
 			</material>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
-            <geometry>
-                <cylinder length="0.0" radius="0.0"/>
-            </geometry> 
+			<geometry>
+ 				<cylinder length="0.0" radius="0.0"/>
+			</geometry> 
+
 		</visual>
 	</link>
 	<link name="link0_x_axis">
@@ -37,7 +38,7 @@
 		</visual>
 	</link>
 	<joint name="q1" type="revolute">
-        <limit lower="-1.5708" upper="1.5708" effort="10" velocity="3"/> 
+        <limit lower="-1.5708" upper="1.5708" effort="10" velocity="3"/>
 		<origin xyz="0 0 0" rpy="0 0 1"/>
 		<parent link="link0_passive"/>
 		<child link="link1"/>
@@ -73,7 +74,7 @@
 		</visual>
 	</link>
 	<joint name="q2" type="prismatic">
-        <limit lower="0" upper="1.0" effort="10" velocity="3"/> 
+        <limit lower="0" upper="1.0" effort="10" velocity="3"/>
 		<origin xyz="0 0 1" rpy="0 0 0"/>
 		<parent link="link1_passive"/>
 		<child link="link2"/>
@@ -109,7 +110,7 @@
 		</visual>
 	</link>
 	<joint name="q3" type="prismatic">
-        <limit lower="0" upper="1.0" effort="10" velocity="3"/>
+        <limit lower="0" upper="1.0" effort="10" velocity="3"/> 
 		<origin xyz="0 0 1" rpy="0 0 0"/>
 		<parent link="link2_passive"/>
 		<child link="link3"/>
