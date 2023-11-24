@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.17.3
+# v0.19.32
 
 using Markdown
 using InteractiveUtils
@@ -58,6 +58,17 @@ The final expression in the block below calls the `Layer` struct as a function w
 
 """
 
+# ╔═╡ 9d21e0c7-2031-45ea-9f55-d0cdd2497265
+md"""
+Define some required activation functions.  `ReLu` is a standard neural network activation function. 
+"""
+
+# ╔═╡ d977de88-782c-44f0-ab06-0e3fbe399748
+begin
+    ReLu(x) = max(0, x)
+    identityFunction(x) = x
+end;
+
 # ╔═╡ 2283561c-2f9e-11ee-22d8-9da2957c3192
 begin
     struct Layer
@@ -70,17 +81,6 @@ begin
     
     (m::Layer)(x) = m.activation.(m.W * x .+ m.b) # feed-forward pass
 end
-
-# ╔═╡ 9d21e0c7-2031-45ea-9f55-d0cdd2497265
-md"""
-Define some required activation functions.  `ReLu` is a standard neural network activation function. 
-"""
-
-# ╔═╡ d977de88-782c-44f0-ab06-0e3fbe399748
-begin
-    ReLu(x) = max(0, x)
-    identityFunction(x) = x
-end;
 
 # ╔═╡ 3d7dcc6c-bebd-4363-89ec-7fc2596a101b
 md"""
@@ -231,19 +231,38 @@ md"""
 
 # ╔═╡ 02a79a7d-24fc-4aeb-9a93-2a1878cb3211
 begin
-    outputPlot = scatter(1:10, targetOutput,
-        title = "Neural Network fit", label = "Data points", legend=:topleft
-    )
+ #    outputPlot = scatter(1:10, targetOutput,
+ #        title = "Neural Network fit", label = "Data points", legend=:topleft
+ #    )
     
-    plot!(outputPlot, 1:10, netOutput[plotIndex],
-        label = "Learned function", lw = 4, color = :red
-    )
+ #    plot!(outputPlot, 1:10, netOutput[plotIndex],
+ #        label = "Learned function", lw = 4, color = :red
+ #    )
 
-    annotate!(3.0, -0.75, text(plotIndex, :blue, :right, 15))
+ #    annotate!(3.0, -0.75, text(plotIndex, :blue, :right, 15))
 
+	# lossCurvePlot = plot(lossCurve, title = "Loss curve", legend=:none)
+	
+ #    plot(outputPlot)
+	
+	# Bar plot for the data points
+	outputPlot = bar(1:10, targetOutput, 
+	    title = "Neural Network fit", label = "Data points", legend=:topleft
+	)
+	
+	# Bar plot for the learned function
+	bar!(outputPlot, 1:10, netOutput[plotIndex],
+	    label = "Learned function", lw = 4, color = :red
+	)
+	
+	# Annotation
+	annotate!(outputPlot, 3.0, -0.75, text(string(plotIndex), :blue, :right, 15))
+	
+	# Line plot for the loss curve
 	lossCurvePlot = plot(lossCurve, title = "Loss curve", legend=:none)
 	
-    plot(outputPlot)
+	# Combine plots
+	plot(outputPlot, lossCurvePlot, layout = (2, 1))
 end
 
 # ╔═╡ 5986f0fc-3d04-4681-bb7d-82870bab1bd8
@@ -256,6 +275,7 @@ Flux = "587475ba-b771-5e3f-ad9e-33799f191a9c"
 Latexify = "23fbe1c1-3f47-55db-b15f-69d7ec21a316"
 Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 Zygote = "e88e6eb3-aa80-5325-afca-941959d7151f"
 
 [compat]
@@ -272,7 +292,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.9.4"
 manifest_format = "2.0"
-project_hash = "7466862cc67efa9b6743530b19921e33ec62ba84"
+project_hash = "db7c9ce3f79f9b67d2cfa2b14a8bd0ce5c457894"
 
 [[deps.AbstractFFTs]]
 deps = ["LinearAlgebra"]
