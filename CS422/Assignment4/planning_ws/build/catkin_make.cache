@@ -1,0 +1,2 @@
+cs422_moveit
+-DCATKIN_DEVEL_PREFIX=/media/alex/AlexPortableSSD/School/4th-year/CS422/Assignment4/planning_ws/devel -DCMAKE_INSTALL_PREFIX=/media/alex/AlexPortableSSD/School/4th-year/CS422/Assignment4/planning_ws/install -G Unix Makefiles
