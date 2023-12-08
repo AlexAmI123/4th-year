@@ -1,0 +1,1 @@
+/media/alex/AlexPortableSSD/School/4th-year/CS422/Assignment4/ws_moveit/devel/.private/chomp_motion_planner/lib/pkgconfig/chomp_motion_planner.pc

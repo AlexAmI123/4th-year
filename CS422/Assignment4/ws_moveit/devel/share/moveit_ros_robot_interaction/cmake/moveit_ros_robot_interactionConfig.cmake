@@ -1,0 +1,1 @@
+/media/alex/AlexPortableSSD/School/4th-year/CS422/Assignment4/ws_moveit/devel/.private/moveit_ros_robot_interaction/share/moveit_ros_robot_interaction/cmake/moveit_ros_robot_interactionConfig.cmake

@@ -1,0 +1,8 @@
+prefix=/media/alex/AlexPortableSSD/School/4th-year/CS422/Assignment4/planning_ws/install
+
+Name: cs422_moveit
+Description: Description of cs422_moveit
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

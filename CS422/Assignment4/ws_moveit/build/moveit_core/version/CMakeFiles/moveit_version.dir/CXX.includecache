@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/media/alex/AlexPortableSSD/School/4th-year/CS422/Assignment4/ws_moveit/devel/.private/moveit_core/include/moveit/version.h
+
+/media/alex/AlexPortableSSD/School/4th-year/CS422/Assignment4/ws_moveit/src/moveit/moveit_core/version/version.cpp
+moveit/version.h
+-
+iostream
+-
+cstring
+-
+

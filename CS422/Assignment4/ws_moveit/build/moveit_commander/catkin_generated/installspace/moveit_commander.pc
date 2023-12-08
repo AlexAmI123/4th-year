@@ -1,0 +1,8 @@
+prefix=/media/alex/AlexPortableSSD/School/4th-year/CS422/Assignment4/ws_moveit/install
+
+Name: moveit_commander
+Description: Description of moveit_commander
+Version: 1.1.13
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

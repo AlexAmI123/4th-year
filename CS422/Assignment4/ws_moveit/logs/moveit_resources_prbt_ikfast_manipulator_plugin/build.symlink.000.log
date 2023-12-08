@@ -1,0 +1,4 @@
+Symlinking /media/alex/AlexPortableSSD/School/4th-year/CS422/Assignment4/ws_moveit/devel/lib/libprbt_manipulator_moveit_ikfast_plugin.so
+Symlinking /media/alex/AlexPortableSSD/School/4th-year/CS422/Assignment4/ws_moveit/devel/lib/pkgconfig/moveit_resources_prbt_ikfast_manipulator_plugin.pc
+Symlinking /media/alex/AlexPortableSSD/School/4th-year/CS422/Assignment4/ws_moveit/devel/share/moveit_resources_prbt_ikfast_manipulator_plugin/cmake/moveit_resources_prbt_ikfast_manipulator_pluginConfig-version.cmake
+Symlinking /media/alex/AlexPortableSSD/School/4th-year/CS422/Assignment4/ws_moveit/devel/share/moveit_resources_prbt_ikfast_manipulator_plugin/cmake/moveit_resources_prbt_ikfast_manipulator_pluginConfig.cmake

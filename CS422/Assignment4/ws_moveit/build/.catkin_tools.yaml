@@ -1,0 +1,6 @@
+devel_space: /media/alex/AlexPortableSSD/School/4th-year/CS422/Assignment4/ws_moveit/devel
+install: false
+install_space: /media/alex/AlexPortableSSD/School/4th-year/CS422/Assignment4/ws_moveit/install
+profile: default
+source_space: /media/alex/AlexPortableSSD/School/4th-year/CS422/Assignment4/ws_moveit/src
+workspace: /media/alex/AlexPortableSSD/School/4th-year/CS422/Assignment4/ws_moveit
