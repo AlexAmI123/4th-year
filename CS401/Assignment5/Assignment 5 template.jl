@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.17.3
+# v0.19.32
 
 using Markdown
 using InteractiveUtils
@@ -148,7 +148,7 @@ m3 = Chain(
   Dense(512, 120),
   Dense(120, 84),
   Dense(84, 10),
-  softmax) |> gpu
+  softmax)
 
 # ╔═╡ 1bbc753e-4e53-4b5d-b519-1e2d8e280d47
 md"""
@@ -184,7 +184,7 @@ Training is where we do a bunch of the interesting operations we defined earlier
 
 # ╔═╡ 0ee90116-1410-408f-a274-15c2ef163898
 begin
-	train_acc = Float32[]
+	train_acc = Int32[]
 	train_epochs = Int32[]
 	epochs = 10
 	for epoch = 1:epochs
