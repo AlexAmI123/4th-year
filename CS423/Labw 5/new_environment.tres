@@ -1,0 +1,21 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://3naje26ap3gu"]
+
+[ext_resource type="Texture2D" uid="uid://bmfwmisrndxjd" path="res://skies/evening_road_01_puresky_1k.exr" id="1_xckjk"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_010lg"]
+panorama = ExtResource("1_xckjk")
+
+[sub_resource type="Sky" id="Sky_awqgo"]
+sky_material = SubResource("PanoramaSkyMaterial_010lg")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_awqgo")
+ambient_light_source = 2
+ambient_light_color = Color(0.662745, 0.145098, 0.101961, 1)
+ssr_enabled = true
+ssr_fade_in = 0.376406
+ssr_fade_out = 0.757856
+ssr_depth_tolerance = 0.01
+ssao_enabled = true
+glow_enabled = true

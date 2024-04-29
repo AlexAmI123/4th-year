@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://0ocgwbovpn76"]
+
+[ext_resource type="Script" path="res://Scenes/players/xr_player_locomotion.gd" id="1_8xihv"]
+
+[node name="XRPlayer" type="XROrigin3D"]
+script = ExtResource("1_8xihv")
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]

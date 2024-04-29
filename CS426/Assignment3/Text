@@ -1,0 +1,97 @@
+import bpy
+import math
+# useful shortcut to reference the scene later
+scene = bpy.context.scene
+# clear all existing objects from scene
+for obj in scene.objects:
+ bpy.context.collection.objects.unlink(obj) 
+ 
+# #create sphere and make it smooth
+#bpy.ops.mesh.primitive_uv_sphere_add(location = (0,0,0), radius=1.0)
+#bpy.ops.object.shade_smooth()
+## Store a reference to it while it is the active object (just created)
+#sphere = bpy.context.active_object
+## mat_r is defined be a new material with a red colour
+#mat_r = bpy.data.materials.new("mat_red")
+#mat_r.diffuse_color = (1, 0, 0, 1)
+#sphere.data.materials.append(mat_r) 
+
+#D:\School\4th-year\CS426\Assignment3\Content_new\Content
+
+# Load the model of the Empire State Building (and center it)
+bpy.ops.wm.obj_import(filepath="D:\\School\\4th-year\\CS426\\Assignment3\\Content_new\\Content\\esb.obj")
+bpy.ops.transform.translate(value=(0.0, 1.45, 0.0))
+# Load the biplane model (and resize it)
+bpy.ops.object.select_all(action='DESELECT')
+bpy.ops.wm.obj_import(filepath="D:\\School\\4th-year\\CS426\\Assignment3\\Content_new\\Content\\biplane2.obj")
+bpy.ops.transform.translate(value=(0.0, 0.0, 0.0))
+bpy.ops.transform.resize(value=(0.2, 0.2, 0.2))
+biplane=bpy.context.selected_objects[0]
+# Load the Gorilla model (and resize it)
+bpy.ops.object.select_all(action='DESELECT')
+bpy.ops.wm.obj_import(filepath="D:\\School\\4th-year\\CS426\\Assignment3\\Content_new\\Content\\Gorilla.obj")
+bpy.ops.transform. rotate ( value=-1.1 , orient_axis='X')
+bpy.ops.transform.translate(value=(0.0, -0.75, 8))
+bpy.ops.transform.resize(value=(0.8, 0.8, 0.8))
+gorilla=bpy.context.selected_objects[0]
+geyer=bpy.context.selected_objects[1]
+geyel=bpy.context.selected_objects[2]
+
+
+# create a flat plane on which to build the scene
+bpy.ops.mesh.primitive_plane_add(location=(0,0,0.01))
+plane = bpy.context.active_object
+plane.dimensions = (100,100,0)
+mat = bpy.data.materials.new("mat_plane")
+mat.diffuse_color = (0, 1, 0, 1)
+plane.data.materials.append(mat) 
+
+
+# Create a light source and configure it
+light_data = bpy.data.lights.new(name="light_1", type='POINT')
+light_data.energy = 30
+# create new object with our light data block
+light_object = bpy.data.objects.new(name="light_1", object_data=light_data)
+# link light object
+bpy.context.collection.objects.link(light_object)
+# make it active
+bpy.context.view_layer.objects.active = light_object
+#change location
+light_object.location = (-6, 0, 12) 
+
+# Create a camera
+cam_data = bpy.data.cameras.new(name="cam")
+cam_object = bpy.data.objects.new(name="Camera", object_data=cam_data)
+bpy.context.collection.objects.link(cam_object)
+scene.camera = cam_object
+# Configure the camera
+cam_object.location = (12, -12, 5)
+cam_object.rotation_euler = (1.3,0,0.77)
+cam = bpy.data.cameras[cam_data.name]
+cam.lens = 30 
+
+# start on frame 0
+number_of_frame = 0
+# Set start and end frames
+scene.frame_start = 0
+scene.frame_end = 40
+for number_of_frame in range(scene.frame_start,scene.frame_end):
+ # create a frame using number_of_frame
+ scene.frame_set(number_of_frame)
+
+ biplane.location =(5*math.cos((2*3.1415)*number_of_frame/40),5*math.sin((2*3.1415)*number_of_frame/40),8)
+ biplane.keyframe_insert(data_path="location", index=-1)
+
+ biplane.rotation_mode = 'XYZ'
+ biplane.rotation_euler= [-3.1415/2,3.1415,(2*3.1415)*number_of_frame/40]
+ biplane.keyframe_insert("rotation_euler", index=-1) 
+ 
+ # Gorilla animation
+ gorilla.location.z = 5 + 3 * math.sin((2 * math.pi) * number_of_frame / 20)  # Oscillates +/- 1 unit around z=8
+ gorilla.keyframe_insert(data_path="location", index=2)
+ 
+ geyer.location.z = 5 + 3 * math.sin((2 * math.pi) * number_of_frame / 20)  # Oscillates +/- 1 unit around z=8
+ geyer.keyframe_insert(data_path="location", index=2)
+ 
+ geyel.location.z = 5 + 3 * math.sin((2 * math.pi) * number_of_frame / 20)  # Oscillates +/- 1 unit around z=8
+ geyel.keyframe_insert(data_path="location", index=2)

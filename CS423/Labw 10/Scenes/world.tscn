@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://di7glr6gph3l6"]
+
+[node name="World" type="Node3D"]
+
+[node name="Platform_proto" type="CSGCombiner3D" parent="."]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Platform_proto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.39742, 0)
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Platform_proto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.744552, 0)
+radius = 1.0
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Platform_proto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.680169, 0)
+radius = 2.0
+height = 1.5
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Platform_proto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.18549, 0)
+radius = 3.0
+height = 1.5
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Platform_proto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.03332, 0)
+radius = 7.0
+height = 1.5
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Platform_proto"]
+transform = Transform3D(0.97616, 0, 0.217053, 0, 1, 0, -0.217053, 0, 0.97616, 0, 4.64802, 0)
+radius = 6.0
+height = 1.5
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="Platform_proto"]
+transform = Transform3D(0.958128, 0, -0.286341, 0, 1, 0, 0.286341, 0, 0.958128, 0, 3.50902, 0)
+radius = 5.0
+height = 1.5
+
+[node name="Room_proto" type="CSGCombiner3D" parent="Platform_proto"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Platform_proto/Room_proto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.06392, 0)
+size = Vector3(7, 3, 5)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Platform_proto/Room_proto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.223186, 8.43186, -0.251521)
+operation = 2
+size = Vector3(7, 3, 5)
+
+[node name="Tabletop" type="CSGBox3D" parent="Platform_proto/Room_proto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.997658, 7.38354, 0.978739)
+size = Vector3(5, 1, 1)
+
+[node name="Seating Area" type="CSGCombiner3D" parent="Platform_proto/Room_proto"]
+
+[node name="Table" type="CSGBox3D" parent="Platform_proto/Room_proto/Seating Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66919, 7.35932, -1.42102)
+size = Vector3(0.7, 1, 0.7)
+
+[node name="Chair" type="CSGBox3D" parent="Platform_proto/Room_proto/Seating Area"]
+transform = Transform3D(0.993955, 0, -0.109786, 0, 1, 0, 0.109786, 0, 0.993955, 2.45879, 7.18735, -1.42102)
+size = Vector3(0.3, 0.5, 0.3)
+
+[node name="Chair2" type="CSGBox3D" parent="Platform_proto/Room_proto/Seating Area"]
+transform = Transform3D(0.987677, 0, 0.156503, 0, 1, 0, -0.156503, 0, 0.987677, 1.51798, 7.18735, -2.28874)
+size = Vector3(0.3, 0.5, 0.3)
+
+[node name="Seating Area2" type="CSGCombiner3D" parent="Platform_proto/Room_proto"]
+transform = Transform3D(-0.998107, 0, 0.0615014, 0, 1, 0, -0.0615014, 0, -0.998107, 0.93932, 0, -2.9011)
+
+[node name="Table" type="CSGBox3D" parent="Platform_proto/Room_proto/Seating Area2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66919, 7.35932, -1.42102)
+size = Vector3(0.7, 1, 0.7)
+
+[node name="Chair" type="CSGBox3D" parent="Platform_proto/Room_proto/Seating Area2"]
+transform = Transform3D(0.993955, 0, -0.109786, 0, 1, 0, 0.109786, 0, 0.993955, 2.45879, 7.18735, -1.42102)
+size = Vector3(0.3, 0.5, 0.3)
+
+[node name="Chair2" type="CSGBox3D" parent="Platform_proto/Room_proto/Seating Area2"]
+transform = Transform3D(0.987677, 0, 0.156503, 0, 1, 0, -0.156503, 0, 0.987677, 1.51798, 7.18735, -2.28874)
+size = Vector3(0.3, 0.5, 0.3)
